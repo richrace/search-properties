@@ -15,12 +15,8 @@ script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rspec spec
 after_success:
-  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  - git remote add heroku git@heroku.com:search-properties.git
-  - echo "Host heroku.com" >> ~/.ssh/config
-  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-  - echo "   CheckHostIP no" >> ~/.ssh/config
-  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - gem install heroku
+  - yes | ruby travis_deployer.rb
   - heroku keys:clear
   - yes | heroku keys:add
-  - yes | git push heroku master
+  - git push heroku master
