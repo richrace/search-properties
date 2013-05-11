@@ -94,4 +94,33 @@ describe ParseSearchString do
 
   end
 
+  describe "#find_location" do
+
+    it "will find just location at the end" do
+      search_string = "1 bedroom flat london"
+      @parser.find_location(search_string).should eq "london"
+    end
+
+    it "will find location when at the beginning" do
+      search_string = "london 1 bedroom flat"
+      @parser.find_location(search_string).should eq "london"
+    end
+
+    it "will find location when in the middle" do
+      search_string = "1 bedroom london flat"
+      @parser.find_location(search_string).should eq "london"
+    end
+
+    it "will find location when location is more than one word" do
+      search_string = "1 bed flat north london"
+      @parser.find_location(search_string).should eq "north london"
+    end
+
+    it "is not case sensitive" do
+      search_string = "1 bed flat North LONDON"
+      @parser.find_location(search_string).should eq "north london"
+    end
+
+  end
+
 end
