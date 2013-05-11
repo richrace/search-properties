@@ -123,4 +123,16 @@ describe ParseSearchString do
 
   end
 
+  describe "#parse_search_string" do
+
+    it "will get a hash of search parameters" do
+      expected_hash = {:bedroom_count => 1,
+                       :property_type => "flat",
+                       :location => "north london"}
+      search_string = "1 bed flat north london"
+      @parser.parse_search_string(search_string).should eq expected_hash
+    end
+
+  end
+
 end
