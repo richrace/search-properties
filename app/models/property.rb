@@ -12,13 +12,27 @@ class Property < ActiveRecord::Base
 
   after_validation :reverse_geocode 
 
-  def self.find_near_by(location, distance, unit = :km)
+  def self.find_near_by(location, distance = 20, unit = :km)
     found = Property.near(location, distance, :units => unit.to_s, :order => "  distance")
     result = []
     found.each do |entity| 
       result << entity if entity.distance_from(location, unit) < distance
     end
     result
+  end
+
+  def self.find_by_search(search_string)
+    parser = ParseSearchString.new
+    options = parser.parse_search_string(search_string)
+    near_by_properties = Property.find_near_by(options[:location])
+
+    filtered = []
+
+    near_by_properties.each do |property|
+      filtered << property if property.bedroom_count >= options[:bedroom_count] && property.name.downcase.include?(options[:property_type])
+    end
+
+    filtered
   end
 
 end
