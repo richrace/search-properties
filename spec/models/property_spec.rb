@@ -58,4 +58,37 @@ describe Property do
 
   end
 
+  describe "#find_by_search" do
+
+    it "will find a house with 2 beds close to London" do
+      search_string = "2 bed house London"
+      @prop.save
+      result = Property.find_by_search(search_string)
+      result.should_not be_empty
+      result.first.should eq @prop
+    end
+
+    it "will find two flats with 1 or more beds close to London" do
+      search_string = "1 bed flat London"
+      
+      prop1 = Property.new(:name => "Sizeable flat",
+                           :bedroom_count => 2,
+                           :latitude => 51.501000,
+                           :longitude => -0.142000)
+      prop2 = Property.new(:name => "A really nice Flat",
+                           :bedroom_count => 1,
+                           :latitude => 51.501000,
+                           :longitude => -0.142000)
+
+      prop1.save
+      prop2.save
+
+      result = Property.find_by_search(search_string)
+      result.should_not be_empty
+      result.size.should eq 2
+      result.should eq [prop1, prop2]
+    end
+
+  end
+
 end
