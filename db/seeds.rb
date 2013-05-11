@@ -5,3 +5,25 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Property.create([
+    {:name => "Sizeable house",
+     :bedroom_count => 2,
+     :latitude => 51.501000,
+     :longitude => -0.142000},
+    {:name => "Trendy flat",
+     :bedroom_count => 2,
+     :latitude => 51.523778,
+     :longitude => -0.205500},
+    {:name => "Flat with stunning view",
+     :bedroom_count => 2,
+     :latitude => 51.504444,
+     :longitude => -0.086667},
+    {:name => "Unique flat",
+     :bedroom_count => 1,
+     :latitude => 51.538333,
+     :longitude => -0.013333},
+    {:name => "Isolated house",
+     :bedroom_count => 1,
+     :latitude => 50.066944,
+     :longitude => -5.746944}
+  ])
