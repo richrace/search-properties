@@ -35,4 +35,76 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  Geocoder.configure(:lookup => :test)
+
+  Geocoder::Lookup::Test.add_stub(
+    [51.510772, -0.119305], [
+      {
+        'latitude'     => 51.510772,
+        'longitude'    => -0.119305,
+        'address'      => 'London, UK',
+        'state'        => 'London',
+        'state_code'   => 'LN',
+        'country'      => 'United Kingdom',
+        'country_code' => 'UK'
+      }
+    ]
+  )
+
+  Geocoder::Lookup::Test.add_stub(
+    "london", [
+      {
+        'latitude'     => 51.510772,
+        'longitude'    => -0.119305,
+        'address'      => 'London, UK',
+        'state'        => 'London',
+        'state_code'   => 'LN',
+        'country'      => 'United Kingdom',
+        'country_code' => 'UK'
+      }
+    ]
+  )
+
+  Geocoder::Lookup::Test.add_stub(
+    [51.501, -0.142], [
+      {
+        'latitude'     => 51.501, 
+        'longitude'    => -0.142,
+        'address'      => 'Westminster, UK',
+        'state'        => 'Greater London',
+        'state_code'   => 'LN',
+        'country'      => 'United Kingdom',
+        'country_code' => 'UK'
+      }
+    ]
+  )
+
+  Geocoder::Lookup::Test.add_stub(
+    "esher", [
+      {
+        'latitude'     => 51.369275,
+        'longitude'    => -0.365338,
+        'address'      => 'Esher, UK',
+        'state'        => 'Greater London',
+        'state_code'   => 'LN',
+        'country'      => 'United Kingdom',
+        'country_code' => 'UK'
+      }
+    ]
+  )
+
+  Geocoder::Lookup::Test.add_stub(
+    [51.405417, -0.265560], [
+      {
+        'latitude'     => 51.405417,
+        'longitude'    => -0.265560,
+        'address'      => 'New Malden, UK',
+        'state'        => 'Greater London',
+        'state_code'   => 'LN',
+        'country'      => 'United Kingdom',
+        'country_code' => 'UK'
+      }
+    ]
+  )
 end

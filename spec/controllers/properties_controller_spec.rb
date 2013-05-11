@@ -24,7 +24,7 @@ describe PropertiesController do
   # Property. As you add validations to Property, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString", "bedroom_count" => 1, "latitude" => 2.2, "longitude" => 2.2 }
+    { "name" => "MyString", "bedroom_count" => 1, "latitude" => 51.405417, "longitude" => -0.265560 }
   end
 
   # This should return the minimal set of values that should be in the session
