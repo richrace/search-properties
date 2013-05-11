@@ -7,7 +7,6 @@ describe Property do
                          :bedroom_count => 2,
                          :latitude => 51.501000,
                          :longitude => -0.142000)
-    @prop.valid?
   end
 
   after(:each) do
@@ -16,7 +15,8 @@ describe Property do
 
   describe "#geocode" do
 
-    it "a Property can have the address generated from lat/long coord" do      
+    it "a Property can have the address generated from lat/long coord" do    
+      @prop.valid?  
       @prop.address.should_not be_nil
     end
 
@@ -41,8 +41,19 @@ describe Property do
     it "will get no properties within 20km of Esher" do
       location_string = "esher"
       @prop.save
-      found = Property.find_near_by(location_string, 20, :units => "km", :order => "distance")
+      found = Property.find_near_by(location_string, 20, :km)
       found.should be_empty
+    end
+
+    it "will get a property within 20km of Esher" do
+      close_prop = Property.new(:name => "house",
+                                   :bedroom_count => 2,
+                                   :latitude => 51.405417,
+                                   :longitude => -0.265560)
+      close_prop.save
+      location_string = "esher"
+      found = Property.find_near_by(location_string, 20, :km)
+      found.first.should eq close_prop
     end
 
   end
