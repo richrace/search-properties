@@ -30,4 +30,12 @@ class ParseSearchString
     search_string.match(/(house|flat)/i).to_s.downcase
   end
 
+  def find_location(search_string)
+    location = search_string
+    location.gsub!(/(\d|one|two|three|four|five|six|seven|eight|nine)\s*(bedrooms|bedroom|beds|bed)/i,"")
+    location.gsub!(/(houses|house|flats|flat)/i,"")
+    location.strip!
+    location.downcase
+  end
+
 end
