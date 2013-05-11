@@ -10,6 +10,10 @@ group :production do
   gem 'pg'
 end
 
+gem "geocoder"
+
+gem 'bootstrap-sass'
+
 gem 'unicorn'
 
 group :development, :test do
