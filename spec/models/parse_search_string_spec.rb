@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe ParseSearchString do
 
-  describe "#find_bedrooms" do
+  before(:all) do
+    @parser = ParseSearchString.new
+  end
 
-    before(:all) do
-      @parser = ParseSearchString.new
-    end
+  describe "#find_bedrooms" do
 
     it "will detect string with 'bedroom'" do
       search_string = "1 bedroom house"
@@ -41,6 +41,40 @@ describe ParseSearchString do
     it "doesn't care about case uses 'BEdRoom'" do
       search_string = "house 1 BEdRoom"
       @parser.find_bedrooms(search_string).should eq 1
+    end
+
+  end
+
+  describe "#find_property_type" do
+
+    it "will detect string with 'flat'" do
+      search_string = "1 bedroom flat"
+      @parser.find_property_type(search_string).should eq "flat"
+    end
+
+    it "will detect string with 'house'" do
+      search_string = "1 bedroom house"
+      @parser.find_property_type(search_string).should eq "house"
+    end
+
+    it "will detect string with 'flats'" do
+      search_string = "1 bedroom flats"
+      @parser.find_property_type(search_string).should eq "flat"
+    end
+
+    it "will detect string with 'houses'" do
+      search_string = "1 bedroom houses"
+      @parser.find_property_type(search_string).should eq "house"
+    end
+
+    it "will ignore case 'HouSe'" do
+      search_string = "1 bedroom HouSe"
+      @parser.find_property_type(search_string).should eq "house"
+    end
+
+    it "will ignore case FlaTs" do
+      search_string = "1 bedroom FlaTs"
+      @parser.find_property_type(search_string).should eq "flat"
     end
 
   end
