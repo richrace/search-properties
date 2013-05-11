@@ -38,4 +38,11 @@ class ParseSearchString
     location.downcase
   end
 
+  def parse_search_string(search_string)
+    bed_count = find_bedrooms(search_string)
+    property_type = find_property_type(search_string)
+    location = find_location(search_string)
+    {:bedroom_count => bed_count, :property_type => property_type, :location => location}
+  end
+
 end
