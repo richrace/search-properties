@@ -43,6 +43,21 @@ describe ParseSearchString do
       @parser.find_bedrooms(search_string).should eq 1
     end
 
+    it "will detect string with written number 'one'" do
+      search_string = "one bed house"
+      @parser.find_bedrooms(search_string).should eq 1
+    end
+
+    it "will detect string with written number 'two'" do
+      search_string = "two bed house"
+      @parser.find_bedrooms(search_string).should eq 2
+    end
+
+    it "will detect string with lots of whitespace between '1    bed'" do
+      search_string = "1     bed house"
+      @parser.find_bedrooms(search_string).should eq 1
+    end
+
   end
 
   describe "#find_property_type" do
