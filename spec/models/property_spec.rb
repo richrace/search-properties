@@ -53,7 +53,7 @@ describe Property do
       close_prop.save
       location_string = "esher"
       found = Property.find_near_by(location_string, 20, :km)
-      found.first.should eq close_prop
+      found.first[:property].should eq close_prop
     end
 
   end
@@ -65,7 +65,7 @@ describe Property do
       @prop.save
       result = Property.find_by_search(search_string)
       result.should_not be_empty
-      result.first.should eq @prop
+      result.first[:property].should eq @prop
     end
 
     it "will find two flats with 1 or more beds close to London" do
@@ -86,7 +86,8 @@ describe Property do
       result = Property.find_by_search(search_string)
       result.should_not be_empty
       result.size.should eq 2
-      result.should eq [prop1, prop2]
+      result.first[:property].should eq prop1
+      result.last[:property].should eq prop2
     end
 
   end
