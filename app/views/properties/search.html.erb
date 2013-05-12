@@ -1,9 +1,11 @@
 <h1>Search Results...</h1>
-
+<div>
+  You searched for "<%= params[:query].strip %>"
+</div>
 <table class="table">
   <tr>
     <th>Name</th>
-    <th>Bedroom count</th>
+    <th>Bedrooms</th>
     <th>Distance from search</th>
     <th></th>
   </tr>
@@ -14,12 +16,14 @@
     <td><%= property[:property].bedroom_count %></td>
     <td><%= property[:distance] %> km</td>
     <td>
-        <%= link_to property, :class => "btn" do %>
+        <%= link_to property[:property], :class => "btn", :id => "backLink" do %>
             <i class="icon-info-sign"></i> Show
         <% end %>
     </td>
   </tr>
 <% end %>
 </table>
+
+<a href="#" class="btn back-link"><i class="icon-arrow-left"></i> Back</a>
 
 <br />

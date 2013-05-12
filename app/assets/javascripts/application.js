@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+
+$(document).ready(function(){
+  $(".back-link").click(function() {
+    parent.history.back();
+    return false;
+  });
+});
