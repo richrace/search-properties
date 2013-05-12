@@ -1,14 +1,9 @@
 <h1>Listing properties</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Bedroom count</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Address</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -16,12 +11,11 @@
   <tr>
     <td><%= property.name %></td>
     <td><%= property.bedroom_count %></td>
-    <td><%= property.latitude %></td>
-    <td><%= property.longitude %></td>
-    <td><%= property.address %></td>
-    <td><%= link_to 'Show', property %></td>
-    <td><%= link_to 'Edit', edit_property_path(property) %></td>
-    <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+        <%= link_to property, :class => "btn" do %>
+            <i class="icon-info-sign"></i> Show
+        <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
