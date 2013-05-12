@@ -24,7 +24,7 @@ describe PropertiesController do
   # Property. As you add validations to Property, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString", "bedroom_count" => 1, "latitude" => 51.405417, "longitude" => -0.265560 }
+    { "name" => "flat", "bedroom_count" => 1, "latitude" => 51.510772, "longitude" => -0.119305 }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -48,6 +48,14 @@ describe PropertiesController do
       get :show, {:id => property.to_param}, valid_session
       assigns(:property).should eq(property)
     end
+  end
+
+  describe "POST search" do
+    it "assigns the similar found properties as @properties" do
+      property = Property.create! valid_attributes
+      post :search, {:query => "flat"}, valid_session
+      assigns(:properties).first[:property].should eq property
+    end 
   end
 
 end
