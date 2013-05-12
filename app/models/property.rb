@@ -12,8 +12,8 @@ class Property < ActiveRecord::Base
 
   after_validation :reverse_geocode 
 
-  def self.find_near_by(location = "London", distance = 20, unit = :km)
-    location = "London" if location.blank?
+  def self.find_near_by(location = "london", distance = 20, unit = :km)
+    location = "london" if location.blank?
     found = Property.near(location, distance, :units => unit.to_s, :order => "  distance")
     result = []
     found.each do |entity| 
