@@ -21,5 +21,12 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def search
+    @properties = Property.find_by_search(params[:query])
+
+    respond_to do |format|
+      format.html # search.html.erb
+    end
+  end
   
 end

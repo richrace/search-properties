@@ -3,7 +3,11 @@ SearchProperties::Application.routes.draw do
 
   get "home/index"
   
-  resources :properties
+  resources :properties do
+    collection do
+      post "search"
+    end
+  end
 
 
   # The priority is based upon order of creation:

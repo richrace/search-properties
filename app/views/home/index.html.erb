@@ -2,5 +2,12 @@
 <br />
 <div>
 	<%= link_to "View Properties", {:controller => :properties}, :class => 'btn' %>
+  <br />
+  <br />
+  <%= form_tag({:controller => :properties, :action => :search}, :method => "post", :class => "form-search") do %>
+    <%= label_tag(:query, "Search for:") %>
+    <%= text_field_tag(:query, nil, :class => "search-query") %>
+    <%= submit_tag("Search", :class => "btn") %>
+  <% end %>
 </div>
 
