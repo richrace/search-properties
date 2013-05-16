@@ -1,7 +1,8 @@
 Properties Searcher
 ====
 
-[![Build Status](https://travis-ci.org/richrace/search-properties.png?branch=master)](https://travis-ci.org/richrace/search-properties)
+[![Build Status](https://travis-ci.org/richrace/search-properties.png?branch=master)](https://travis-ci.org/richrace/search-properties) [![Code Climate](https://codeclimate.com/github/richrace/search-properties.png)](https://codeclimate.com/github/richrace/search-properties) [![Coverage Status](https://coveralls.io/repos/richrace/search-properties/badge.png)](https://coveralls.io/r/richrace/search-properties)
+
 
 Code Test for a job.
 
