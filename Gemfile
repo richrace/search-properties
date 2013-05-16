@@ -12,6 +12,8 @@ end
 
 gem "geocoder"
 
+gem 'coveralls', require: false
+
 gem 'bootstrap-sass'
 
 gem 'unicorn'

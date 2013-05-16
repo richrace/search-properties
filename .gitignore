@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+coverage/.last_run.json
+
+coverage/.resultset.json
