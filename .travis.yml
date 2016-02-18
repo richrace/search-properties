@@ -1,13 +1,7 @@
 ---
-env:
-  global:
-  - secure: |-
-      a1qjrGKBLS2U5DIoRvLQbvAJgtiifQ8qJi4tYw6AOVLr35PGJmVsb++AfJGW
-      zCaw5U9bmlJtnSq2yrebWp69HdcUw9LKLVcLLmpDqT2ZPo3hlT0iNnLlK0gi
-      CBkLup09dcRmN32UTTl8U6xCR2X3zBJ/v7HXTmsNF+vGRdd3oR8=
 language: ruby
 rvm:
-- 2.0.0
+- 2.2.4
 script:
 - RAILS_ENV=test bundle exec rake --trace db:migrate
 - bundle exec rspec spec
