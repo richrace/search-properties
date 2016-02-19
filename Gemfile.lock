@@ -102,6 +102,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rspec-activemodel-mocks (1.0.3)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.4.3)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -168,6 +172,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.22.1)
+  rspec-activemodel-mocks
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3

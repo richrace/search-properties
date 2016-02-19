@@ -15,6 +15,7 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
   gem 'sqlite3'
   gem 'test-unit', '~> 3.0'
 end
