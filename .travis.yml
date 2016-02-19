@@ -5,9 +5,3 @@ rvm:
 script:
 - RAILS_ENV=test bundle exec rake --trace db:migrate
 - bundle exec rspec spec
-after_success:
-- gem install heroku
-- yes | ruby travis_deployer.rb
-- heroku keys:clear
-- yes | heroku keys:add
-- git push heroku master
